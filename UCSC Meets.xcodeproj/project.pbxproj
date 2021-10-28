@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6538FEE4272A7A3900A95BC9 /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6538FEE3272A7A3900A95BC9 /* MainMapViewController.swift */; };
+		6538FEEB272AEA5E00A95BC9 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6538FEE9272AEA5E00A95BC9 /* CardViewController.swift */; };
+		6538FEEC272AEA5E00A95BC9 /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6538FEEA272AEA5E00A95BC9 /* CardViewController.xib */; };
 		65BF8ED42720051F009A8DC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8ED32720051F009A8DC1 /* AppDelegate.swift */; };
 		65BF8ED62720051F009A8DC1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8ED52720051F009A8DC1 /* SceneDelegate.swift */; };
-		65BF8ED82720051F009A8DC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8ED72720051F009A8DC1 /* ViewController.swift */; };
+		65BF8ED82720051F009A8DC1 /* LoginSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8ED72720051F009A8DC1 /* LoginSignUpViewController.swift */; };
 		65BF8EDB2720051F009A8DC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BF8ED92720051F009A8DC1 /* Main.storyboard */; };
 		65BF8EDD27200521009A8DC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65BF8EDC27200521009A8DC1 /* Assets.xcassets */; };
 		65BF8EE027200521009A8DC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BF8EDE27200521009A8DC1 /* LaunchScreen.storyboard */; };
+		65BF8EE827200CB9009A8DC1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8EE727200CB9009A8DC1 /* SignInViewController.swift */; };
+		65BF8EEC272015E5009A8DC1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8EEA272015E4009A8DC1 /* CustomButton.swift */; };
+		65BF8EED272015E5009A8DC1 /* OHCircleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8EEB272015E4009A8DC1 /* OHCircleSegue.swift */; };
+		65BF8EEF2720B486009A8DC1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8EEE2720B486009A8DC1 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6538FEE3272A7A3900A95BC9 /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
+		6538FEE9272AEA5E00A95BC9 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		6538FEEA272AEA5E00A95BC9 /* CardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
 		65BF8ED02720051F009A8DC1 /* UCSC Meets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCSC Meets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65BF8ED32720051F009A8DC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65BF8ED52720051F009A8DC1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		65BF8ED72720051F009A8DC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		65BF8ED72720051F009A8DC1 /* LoginSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignUpViewController.swift; sourceTree = "<group>"; };
 		65BF8EDA2720051F009A8DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65BF8EDC27200521009A8DC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65BF8EDF27200521009A8DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65BF8EE127200521009A8DC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65BF8EE727200CB9009A8DC1 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		65BF8EEA272015E4009A8DC1 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		65BF8EEB272015E4009A8DC1 /* OHCircleSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OHCircleSegue.swift; sourceTree = "<group>"; };
+		65BF8EEE2720B486009A8DC1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6538FEE2272A793000A95BC9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				65BF8ED72720051F009A8DC1 /* LoginSignUpViewController.swift */,
+				65BF8EE727200CB9009A8DC1 /* SignInViewController.swift */,
+				65BF8EEE2720B486009A8DC1 /* SignUpViewController.swift */,
+				6538FEE3272A7A3900A95BC9 /* MainMapViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		65BF8EC72720051F009A8DC1 = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +83,26 @@
 			children = (
 				65BF8ED32720051F009A8DC1 /* AppDelegate.swift */,
 				65BF8ED52720051F009A8DC1 /* SceneDelegate.swift */,
-				65BF8ED72720051F009A8DC1 /* ViewController.swift */,
+				6538FEEA272AEA5E00A95BC9 /* CardViewController.xib */,
+				6538FEE9272AEA5E00A95BC9 /* CardViewController.swift */,
+				6538FEE2272A793000A95BC9 /* ViewControllers */,
 				65BF8ED92720051F009A8DC1 /* Main.storyboard */,
 				65BF8EDC27200521009A8DC1 /* Assets.xcassets */,
 				65BF8EDE27200521009A8DC1 /* LaunchScreen.storyboard */,
+				65BF8EE9272015E4009A8DC1 /* Custom Classes */,
 				65BF8EE127200521009A8DC1 /* Info.plist */,
 			);
 			path = "UCSC Meets";
+			sourceTree = "<group>";
+		};
+		65BF8EE9272015E4009A8DC1 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				65BF8EEA272015E4009A8DC1 /* CustomButton.swift */,
+				65BF8EEB272015E4009A8DC1 /* OHCircleSegue.swift */,
+			);
+			name = "Custom Classes";
+			path = "../../YouMethod-main/YouMethod/Custom Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6538FEEC272AEA5E00A95BC9 /* CardViewController.xib in Resources */,
 				65BF8EE027200521009A8DC1 /* LaunchScreen.storyboard in Resources */,
 				65BF8EDD27200521009A8DC1 /* Assets.xcassets in Resources */,
 				65BF8EDB2720051F009A8DC1 /* Main.storyboard in Resources */,
@@ -138,9 +177,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65BF8ED82720051F009A8DC1 /* ViewController.swift in Sources */,
+				65BF8EE827200CB9009A8DC1 /* SignInViewController.swift in Sources */,
+				65BF8EEF2720B486009A8DC1 /* SignUpViewController.swift in Sources */,
+				65BF8ED82720051F009A8DC1 /* LoginSignUpViewController.swift in Sources */,
 				65BF8ED42720051F009A8DC1 /* AppDelegate.swift in Sources */,
 				65BF8ED62720051F009A8DC1 /* SceneDelegate.swift in Sources */,
+				6538FEEB272AEA5E00A95BC9 /* CardViewController.swift in Sources */,
+				65BF8EED272015E5009A8DC1 /* OHCircleSegue.swift in Sources */,
+				65BF8EEC272015E5009A8DC1 /* CustomButton.swift in Sources */,
+				6538FEE4272A7A3900A95BC9 /* MainMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
