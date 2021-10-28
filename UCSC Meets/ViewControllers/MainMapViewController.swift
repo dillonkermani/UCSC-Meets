@@ -39,6 +39,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func setupCard() {
+
         cardViewController = CardViewController(nibName: "CardViewController", bundle: nil)
         self.addChild(cardViewController)
         self.view.addSubview(cardViewController.view)
@@ -52,7 +53,8 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
         
         cardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
         cardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
-        
+        cardViewController.view.layer.cornerRadius = 12
+
     }
     
     @objc
@@ -106,17 +108,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
             runningAnimations.append(frameAnimator)
             
             
-            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
-                switch state {
-                case .expanded:
-                    self.cardViewController.view.layer.cornerRadius = 12
-                case .collapsed:
-                    self.cardViewController.view.layer.cornerRadius = 0
-                }
-            }
-            
-            cornerRadiusAnimator.startAnimation()
-            runningAnimations.append(cornerRadiusAnimator)
+
             
         }
     }
