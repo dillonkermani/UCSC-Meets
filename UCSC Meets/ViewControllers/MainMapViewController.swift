@@ -18,10 +18,10 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
-    let regionInMeters: Double = 1000
+    let regionInMeters: Double = 400
     
     var cardViewController: CardViewController!
-    let cardHeight:CGFloat = 600
+    let cardHeight:CGFloat = 300
     let cardHandleArea:CGFloat = 65
     var cardVisible = false
     var nextState:CardState {
@@ -165,7 +165,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
             // Location services has been authorized. Setup map functionality
             mapView.showsUserLocation = true
             centerViewOnUserLocation()
-            locationManager.startUpdatingLocation() // Executes didUpdateLocations delegate func below
+            //locationManager.startUpdatingLocation() // Executes didUpdateLocations delegate func below
             break
         case .notDetermined:
             // Prompt user to enable location services.
