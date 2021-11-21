@@ -62,6 +62,24 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		653AE7852748DB700082C80A /* Custom ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6538FEEA272AEA5E00A95BC9 /* CardViewController.xib */,
+				6538FEE9272AEA5E00A95BC9 /* CardViewController.swift */,
+			);
+			path = "Custom ViewControllers";
+			sourceTree = "<group>";
+		};
+		653AE7862748DBA90082C80A /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				65BF8ED32720051F009A8DC1 /* AppDelegate.swift */,
+				65BF8ED52720051F009A8DC1 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		65BF8EC72720051F009A8DC1 = {
 			isa = PBXGroup;
 			children = (
@@ -81,15 +99,13 @@
 		65BF8ED22720051F009A8DC1 /* UCSC Meets */ = {
 			isa = PBXGroup;
 			children = (
-				65BF8ED32720051F009A8DC1 /* AppDelegate.swift */,
-				65BF8ED52720051F009A8DC1 /* SceneDelegate.swift */,
-				6538FEEA272AEA5E00A95BC9 /* CardViewController.xib */,
-				6538FEE9272AEA5E00A95BC9 /* CardViewController.swift */,
+				653AE7862748DBA90082C80A /* Delegates */,
 				6538FEE2272A793000A95BC9 /* ViewControllers */,
 				65BF8ED92720051F009A8DC1 /* Main.storyboard */,
-				65BF8EDC27200521009A8DC1 /* Assets.xcassets */,
 				65BF8EDE27200521009A8DC1 /* LaunchScreen.storyboard */,
+				653AE7852748DB700082C80A /* Custom ViewControllers */,
 				65BF8EE9272015E4009A8DC1 /* Custom Classes */,
+				65BF8EDC27200521009A8DC1 /* Assets.xcassets */,
 				65BF8EE127200521009A8DC1 /* Info.plist */,
 			);
 			path = "UCSC Meets";

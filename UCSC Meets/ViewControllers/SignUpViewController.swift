@@ -15,7 +15,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
         for tf in signUpTextFields {
-            tf.layer.cornerRadius = 20
+            tf.layer.cornerRadius = 10
             tf.layer.masksToBounds = true
         }
         
