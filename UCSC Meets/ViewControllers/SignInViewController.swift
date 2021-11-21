@@ -16,9 +16,9 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        emailTextField.layer.cornerRadius = 20
+        emailTextField.layer.cornerRadius = 10
         emailTextField.layer.masksToBounds = true
-        passwordTextField.layer.cornerRadius = 20
+        passwordTextField.layer.cornerRadius = 10
         passwordTextField.layer.masksToBounds = true
     }
     
