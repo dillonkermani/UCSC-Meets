@@ -8,7 +8,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MainMapViewController: UIViewController, CLLocationManagerDelegate {
+class MainMapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     enum CardState {
         case expanded
@@ -29,14 +29,215 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     var runningAnimations = [UIViewPropertyAnimator]()
     var animationProgressWhenInterrupted:CGFloat = 0
     
+    @IBOutlet weak var chooseLoc_label: UILabel!
+    
+    @IBOutlet weak var plus_btn: CustomButton!
+    @IBOutlet weak var settings_btn: CustomButton!
+    @IBOutlet weak var refresh_btn: CustomButton!
+    @IBOutlet weak var notif_btn: CustomButton!
+    @IBOutlet weak var logOut_btn: CustomButton!
+    @IBOutlet weak var menu_view: UIView!
+    
+    var refresh_btn_center: CGPoint!
+    var notif_btn_center: CGPoint!
+    var logOut_btn_center: CGPoint!
+    
+    var settings_expanded = false
+    var plus_expanded = false
+    var pinPrompt_expanded = false
+    var pin_setup_complete = false
+    
+    let annotation = MKPointAnnotation()
+    
+    @IBOutlet weak var prompt_parent_view: UIView!
+    @IBOutlet weak var promptParentViewCenterX: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServices()
         
+        //Causes entryParentView to load from left of view
+        promptParentViewCenterX.constant -= view.bounds.width
+        
         setupCard()
+        
+        // Saving destination locations for settings buttons at setup.
+        refresh_btn_center = refresh_btn.center
+        notif_btn_center = notif_btn.center
+        logOut_btn_center = logOut_btn.center
+        // Collapse settings buttons.
+        refresh_btn.center = settings_btn.center
+        notif_btn.center = settings_btn.center
+        logOut_btn.center = settings_btn.center
+        menu_view.center = settings_btn.center
+        
+        
+        // Collapse menu_view
+        menu_view.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        
+        // For getting location while tapping on map we need to add UITapGestureRecognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        mapView.addGestureRecognizer(tapGesture)
+        mapView.delegate = self
+        
+       
+
+        
 
     }
     
+    // BEGIN Meet setup prompting.
+    @objc func handleTap(gestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if !pinPrompt_expanded {
+            presentPinPrompt()
+            plus_btn_pressed()
+            // Save tapped location
+            let tappedLocation = gestureRecognizer.location(in: mapView)
+            let coordinate = mapView.convert(tappedLocation,toCoordinateFrom: mapView)
+
+            // Center screen at tappedLocation
+            let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+            mapView.setRegion(region, animated: true)
+            
+            // Create and add ghost annotation to tappedLocation
+            annotation.coordinate = coordinate
+            mapView.addAnnotation(annotation)
+            
+        }
+       
+        
+        
+    }
+    
+    func presentPinPrompt() {
+        // Present Prompt Screen (incomplete)
+        UIView.animate(withDuration: 0.9, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                    self.promptParentViewCenterX.constant += self.view.bounds.width
+                    self.view.layoutIfNeeded()
+                }, completion: nil)
+        pinPrompt_expanded = true
+            // Save meet_title
+            // annotation.title =
+            // annotation.subtitle =
+        
+        // Present When? Screen (incomplete)
+            // Save start_time & end_time
+        
+        // Present Choose Pin Screen (incomplete)
+        
+        
+        // If done is pressed, create new global pin and upload all saved attributes to Firestore
+            // upload data to db
+        // Else remove pin from map and centerViewOnUserLocation()
+    }
+   
+    func collapsePinPrompt() {
+        UIView.animate(withDuration: 0.9, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                    self.promptParentViewCenterX.constant -= self.view.bounds.width
+                    self.view.layoutIfNeeded()
+                }, completion: nil)
+        pinPrompt_expanded = false
+    }
+    
+    @IBAction func plus_btn_pressed(_ sender: Any) {
+        // Set in in center of screen
+        
+        // Display prompt view etc.
+        
+        if !plus_expanded {
+            // Create pin in middle of screen
+            annotation.coordinate = mapView.centerCoordinate
+            mapView.addAnnotation(annotation)
+            plus_btn_pressed()
+            presentPinPrompt()
+        } else {
+            x_btn_pressed()
+        }
+        
+        
+        // If center of screen is not MKUserLocation
+            // Create annotation at center of screen.
+    
+    }
+    
+    
+    
+    func plus_btn_pressed() {
+        UIView.animate(withDuration: 0.3, animations: {
+                self.plus_btn.transform = CGAffineTransform(rotationAngle: 260)
+                self.plus_btn.backgroundColor = UIColor.systemRed
+                self.plus_btn.tintColor = UIColor.white
+                self.plus_expanded = true
+        })
+    }
+    
+    func x_btn_pressed() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.plus_btn.transform = .identity
+            self.plus_btn.backgroundColor = UIColor.systemBlue
+            self.plus_btn.tintColor = UIColor.systemYellow
+            self.plus_expanded = false
+            
+        })
+        self.collapsePinPrompt()
+        mapView.removeAnnotation(annotation)
+    }
+    
+    
+    
+    @IBAction func settings_btn_clicked(_ sender: UIButton) {
+        if settings_expanded == false {
+            // Expand settings buttons.
+            UIView.animate(withDuration: 0.3, animations: {
+                
+                // Expand menu view
+                self.menu_view.transform = .identity
+                
+                // Rotate settings button 180 degrees
+                self.settings_btn.transform = CGAffineTransform(rotationAngle: 180.0)
+                
+                // expand settings buttons
+                self.refresh_btn.alpha = 1
+                self.notif_btn.alpha = 1
+                self.logOut_btn.alpha = 1
+                self.menu_view.alpha = 1
+                
+                self.refresh_btn.center = self.refresh_btn_center
+                self.notif_btn.center = self.notif_btn_center
+                self.logOut_btn.center = self.logOut_btn_center
+                
+                self.settings_expanded = true
+                
+                
+            })
+            
+        } else {
+            
+            // Collapse settings buttons.
+            UIView.animate(withDuration: 0.3, animations: {
+                // Collapse menu_view
+                self.menu_view.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+                // Unwind settings rotation
+                self.settings_btn.transform = CGAffineTransform.identity
+                
+                self.refresh_btn.alpha = 0
+                self.notif_btn.alpha = 0
+                self.logOut_btn.alpha = 0
+                self.menu_view.alpha = 0
+                
+                self.refresh_btn.center = self.settings_btn.center
+                self.notif_btn.center = self.settings_btn.center
+                self.logOut_btn.center = self.settings_btn.center
+                
+                self.settings_expanded = false
+            })
+        }
+        
+    }
+    
+    // Setup for bottom info card.
     func setupCard() {
 
         cardViewController = CardViewController(nibName: "CardViewController", bundle: nil)
@@ -60,7 +261,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
     func handleCardTap(recognizer: UITapGestureRecognizer) {
         switch recognizer.state {
         case .ended:
-            animateTransitionIfNeeded(state: nextState, duration: 0.9)
+            animateTransitionIfNeeded(state: nextState, duration: 0.4)
         default:
             break
         }
@@ -71,7 +272,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
         switch recognizer.state {
         case .began:
             // Start transition animation.
-            startInteractiveTransition(state: nextState, duration: 0.9)
+            startInteractiveTransition(state: nextState, duration: 0.4)
         case .changed:
             // Update transition animaiton.
             let translation = recognizer.translation(in: self.cardViewController.handleArea)
@@ -145,6 +346,7 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate {
             mapView.setRegion(region, animated: true)
         }
     }
+    
     
     func checkLocationServices() {
         // Checks whether DEVICE WIDE LOCATION is enabled.

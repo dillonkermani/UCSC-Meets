@@ -9,14 +9,18 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
+    var placeholderStrings:[String] = ["First Name", "Last Name", "Enter your @ucsc.edu email", "Password", "Confirm Password"]
+    
     @IBOutlet var signUpTextFields: [UITextField]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for tf in signUpTextFields {
-            tf.layer.cornerRadius = 10
+        for (i, tf) in signUpTextFields.enumerated() {
+            tf.layer.cornerRadius = 20
             tf.layer.masksToBounds = true
+            
+            tf.attributedPlaceholder = NSAttributedString(string: placeholderStrings[i], attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         }
         
     }

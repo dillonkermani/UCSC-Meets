@@ -10,6 +10,10 @@
 		6538FEE4272A7A3900A95BC9 /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6538FEE3272A7A3900A95BC9 /* MainMapViewController.swift */; };
 		6538FEEB272AEA5E00A95BC9 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6538FEE9272AEA5E00A95BC9 /* CardViewController.swift */; };
 		6538FEEC272AEA5E00A95BC9 /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6538FEEA272AEA5E00A95BC9 /* CardViewController.xib */; };
+		6561B16E274CE11900B0AB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6561B16D274CE11900B0AB8A /* GoogleService-Info.plist */; };
+		6583F387276081DC002A4517 /* WelcomeBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6583F386276081DC002A4517 /* WelcomeBackViewController.swift */; };
+		6583F389276081FD002A4517 /* TakePFPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6583F388276081FD002A4517 /* TakePFPViewController.swift */; };
+		65B695612763A7AB00CF0BDA /* CustomPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B695602763A7AB00CF0BDA /* CustomPin.swift */; };
 		65BF8ED42720051F009A8DC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8ED32720051F009A8DC1 /* AppDelegate.swift */; };
 		65BF8ED62720051F009A8DC1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8ED52720051F009A8DC1 /* SceneDelegate.swift */; };
 		65BF8ED82720051F009A8DC1 /* LoginSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8ED72720051F009A8DC1 /* LoginSignUpViewController.swift */; };
@@ -20,12 +24,18 @@
 		65BF8EEC272015E5009A8DC1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8EEA272015E4009A8DC1 /* CustomButton.swift */; };
 		65BF8EED272015E5009A8DC1 /* OHCircleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8EEB272015E4009A8DC1 /* OHCircleSegue.swift */; };
 		65BF8EEF2720B486009A8DC1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF8EEE2720B486009A8DC1 /* SignUpViewController.swift */; };
+		891495D2A143DD772C06FFBA /* Pods_UCSC_Meets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AAECC3CB2A54C9CB6B60C4 /* Pods_UCSC_Meets.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25AAECC3CB2A54C9CB6B60C4 /* Pods_UCSC_Meets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UCSC_Meets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6538FEE3272A7A3900A95BC9 /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
 		6538FEE9272AEA5E00A95BC9 /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		6538FEEA272AEA5E00A95BC9 /* CardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
+		6561B16D274CE11900B0AB8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6583F386276081DC002A4517 /* WelcomeBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackViewController.swift; sourceTree = "<group>"; };
+		6583F388276081FD002A4517 /* TakePFPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePFPViewController.swift; sourceTree = "<group>"; };
+		65B695602763A7AB00CF0BDA /* CustomPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPin.swift; sourceTree = "<group>"; };
 		65BF8ED02720051F009A8DC1 /* UCSC Meets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCSC Meets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65BF8ED32720051F009A8DC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65BF8ED52720051F009A8DC1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +48,8 @@
 		65BF8EEA272015E4009A8DC1 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		65BF8EEB272015E4009A8DC1 /* OHCircleSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OHCircleSegue.swift; sourceTree = "<group>"; };
 		65BF8EEE2720B486009A8DC1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BE05776C0C443BC7A7F99722 /* Pods-UCSC Meets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCSC Meets.release.xcconfig"; path = "Target Support Files/Pods-UCSC Meets/Pods-UCSC Meets.release.xcconfig"; sourceTree = "<group>"; };
+		C8CE2B6AF7443E1C1F708DA5 /* Pods-UCSC Meets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCSC Meets.debug.xcconfig"; path = "Target Support Files/Pods-UCSC Meets/Pods-UCSC Meets.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,12 +57,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				891495D2A143DD772C06FFBA /* Pods_UCSC_Meets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		611F6D6DAA480F46A2DF364C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE2B6AF7443E1C1F708DA5 /* Pods-UCSC Meets.debug.xcconfig */,
+				BE05776C0C443BC7A7F99722 /* Pods-UCSC Meets.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6538FEE2272A793000A95BC9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +80,8 @@
 				65BF8EE727200CB9009A8DC1 /* SignInViewController.swift */,
 				65BF8EEE2720B486009A8DC1 /* SignUpViewController.swift */,
 				6538FEE3272A7A3900A95BC9 /* MainMapViewController.swift */,
+				6583F386276081DC002A4517 /* WelcomeBackViewController.swift */,
+				6583F388276081FD002A4517 /* TakePFPViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -85,6 +109,8 @@
 			children = (
 				65BF8ED22720051F009A8DC1 /* UCSC Meets */,
 				65BF8ED12720051F009A8DC1 /* Products */,
+				611F6D6DAA480F46A2DF364C /* Pods */,
+				7790C5EBD3D741E58A5FE4E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +125,7 @@
 		65BF8ED22720051F009A8DC1 /* UCSC Meets */ = {
 			isa = PBXGroup;
 			children = (
+				6561B16D274CE11900B0AB8A /* GoogleService-Info.plist */,
 				653AE7862748DBA90082C80A /* Delegates */,
 				6538FEE2272A793000A95BC9 /* ViewControllers */,
 				65BF8ED92720051F009A8DC1 /* Main.storyboard */,
@@ -115,10 +142,19 @@
 			isa = PBXGroup;
 			children = (
 				65BF8EEA272015E4009A8DC1 /* CustomButton.swift */,
+				65B695602763A7AB00CF0BDA /* CustomPin.swift */,
 				65BF8EEB272015E4009A8DC1 /* OHCircleSegue.swift */,
 			);
 			name = "Custom Classes";
 			path = "../../YouMethod-main/YouMethod/Custom Classes";
+			sourceTree = "<group>";
+		};
+		7790C5EBD3D741E58A5FE4E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25AAECC3CB2A54C9CB6B60C4 /* Pods_UCSC_Meets.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65BF8EE427200521009A8DC1 /* Build configuration list for PBXNativeTarget "UCSC Meets" */;
 			buildPhases = (
+				0366AE4A0C6AAA93688A3F1F /* [CP] Check Pods Manifest.lock */,
 				65BF8ECC2720051F009A8DC1 /* Sources */,
 				65BF8ECD2720051F009A8DC1 /* Frameworks */,
 				65BF8ECE2720051F009A8DC1 /* Resources */,
+				1E3D4912F78044E3FE5A709F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,6 +219,7 @@
 			files = (
 				6538FEEC272AEA5E00A95BC9 /* CardViewController.xib in Resources */,
 				65BF8EE027200521009A8DC1 /* LaunchScreen.storyboard in Resources */,
+				6561B16E274CE11900B0AB8A /* GoogleService-Info.plist in Resources */,
 				65BF8EDD27200521009A8DC1 /* Assets.xcassets in Resources */,
 				65BF8EDB2720051F009A8DC1 /* Main.storyboard in Resources */,
 			);
@@ -188,13 +227,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0366AE4A0C6AAA93688A3F1F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UCSC Meets-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1E3D4912F78044E3FE5A709F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UCSC Meets/Pods-UCSC Meets-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UCSC Meets/Pods-UCSC Meets-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UCSC Meets/Pods-UCSC Meets-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		65BF8ECC2720051F009A8DC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65B695612763A7AB00CF0BDA /* CustomPin.swift in Sources */,
 				65BF8EE827200CB9009A8DC1 /* SignInViewController.swift in Sources */,
 				65BF8EEF2720B486009A8DC1 /* SignUpViewController.swift in Sources */,
+				6583F389276081FD002A4517 /* TakePFPViewController.swift in Sources */,
+				6583F387276081DC002A4517 /* WelcomeBackViewController.swift in Sources */,
 				65BF8ED82720051F009A8DC1 /* LoginSignUpViewController.swift in Sources */,
 				65BF8ED42720051F009A8DC1 /* AppDelegate.swift in Sources */,
 				65BF8ED62720051F009A8DC1 /* SceneDelegate.swift in Sources */,
@@ -345,6 +429,7 @@
 		};
 		65BF8EE527200521009A8DC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8CE2B6AF7443E1C1F708DA5 /* Pods-UCSC Meets.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -373,6 +458,7 @@
 		};
 		65BF8EE627200521009A8DC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE05776C0C443BC7A7F99722 /* Pods-UCSC Meets.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

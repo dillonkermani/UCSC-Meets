@@ -99,7 +99,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="DKP-HN-mOe" firstAttribute="top" secondItem="TZr-vK-qcm" secondAttribute="bottom" constant="57.5" id="0Cm-nY-ebi"/>
@@ -136,18 +136,21 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your @ucsc.edu email" textAlignment="natural" minimumFontSize="17" id="ADA-ye-G4z">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="52.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" id="4ih-U6-qxQ">
                                         <rect key="frame" x="0.0" y="77.5" width="350" height="52.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="gOv-jA-1br"/>
+                                    <constraint firstAttribute="height" constant="130" id="pFt-Hc-QPd"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoT-aJ-Qof" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
@@ -196,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="2674" y="-1079"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome Back View Controller-->
         <scene sceneID="AyN-5Q-qPc">
             <objects>
-                <viewController id="dUV-xg-zfn" sceneMemberID="viewController">
+                <viewController id="dUV-xg-zfn" userLabel="Welcome Back View Controller" customClass="WelcomeBackViewController" customModule="UCSC_Meets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J3i-u3-qQ5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,13 +217,6 @@
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zi2-K0-08G">
-                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="7gw-59-uZe"/>
-                                    <constraint firstAttribute="width" constant="200" id="LnC-C0-Kau"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3af-Bt-6WA" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="477" width="100" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -245,16 +241,36 @@
                                     <segue destination="FwS-oy-Ybv" kind="presentation" customClass="OHCircleSegue" customModule="UCSC_Meets" customModuleProvider="target" modalPresentationStyle="fullScreen" id="Dbo-bz-JYx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9i-0D-4Cx" userLabel="pfp_btn" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="g27-wl-A3l"/>
+                                    <constraint firstAttribute="height" constant="200" id="tja-fa-Iok"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="person.circle.fill" catalog="system" title="">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="114"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pfp_btn_pressed:" destination="CDr-fA-TEt" eventType="touchUpInside" id="e2O-Mt-hKI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GUe-aG-jTk"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
                             <constraint firstItem="mVH-T8-Dib" firstAttribute="top" secondItem="GUe-aG-jTk" secondAttribute="top" constant="20" id="9Vp-E9-VbJ"/>
-                            <constraint firstItem="Zi2-K0-08G" firstAttribute="centerY" secondItem="J3i-u3-qQ5" secondAttribute="centerY" id="LkZ-o3-r70"/>
-                            <constraint firstItem="Zi2-K0-08G" firstAttribute="centerX" secondItem="J3i-u3-qQ5" secondAttribute="centerX" id="YmD-Bt-cSW"/>
+                            <constraint firstItem="m9i-0D-4Cx" firstAttribute="centerY" secondItem="J3i-u3-qQ5" secondAttribute="centerY" id="F1U-6V-Pxb"/>
                             <constraint firstItem="mVH-T8-Dib" firstAttribute="centerX" secondItem="J3i-u3-qQ5" secondAttribute="centerX" id="Yx7-Nz-AVq"/>
                             <constraint firstItem="GUe-aG-jTk" firstAttribute="bottom" secondItem="3af-Bt-6WA" secondAttribute="bottom" constant="90" id="Z4J-gi-2yT"/>
                             <constraint firstItem="3af-Bt-6WA" firstAttribute="centerX" secondItem="J3i-u3-qQ5" secondAttribute="centerX" id="gqh-Qm-c7X"/>
+                            <constraint firstItem="m9i-0D-4Cx" firstAttribute="centerX" secondItem="J3i-u3-qQ5" secondAttribute="centerX" id="heQ-z2-YHL"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -272,29 +288,25 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JIo-fZ-mhK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FVE-J2-BXi" appends="YES" id="K8s-xO-M6B"/>
+                                </connections>
                             </mapView>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22x-4w-Kg0" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="50" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLW-d6-dcw" userLabel="Prompt Parent View">
+                                <rect key="frame" x="72.5" y="66.5" width="230" height="230"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="0qD-Wh-8Kf"/>
-                                    <constraint firstAttribute="height" constant="50" id="NNN-ve-KFs"/>
+                                    <constraint firstAttribute="height" constant="230" id="ILR-tg-iv8"/>
+                                    <constraint firstAttribute="width" constant="230" id="twx-hR-6HZ"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemYellowColor"/>
-                                <state key="normal" image="gear" catalog="system">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
-                                </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="25"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqj-to-qUS" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqj-to-qUS" userLabel="plus_btn" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
                                 <rect key="frame" x="315" y="10" width="50" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
@@ -314,38 +326,152 @@
                                         <integer key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="plus_btn_pressed:" destination="FwS-oy-Ybv" eventType="touchUpInside" id="fYb-8c-SPg"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday, Oct 28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXF-3o-kex">
-                                <rect key="frame" x="60" y="20" width="255" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="textColor" systemColor="systemYellowColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sm5-ez-Yxi" userLabel="Menu View">
+                                <rect key="frame" x="-126" y="-106" width="340" height="340"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="170"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9DL-Db-2KN" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
+                                <rect key="frame" x="10" y="142" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Guv-Rn-Szn"/>
+                                    <constraint firstAttribute="width" constant="50" id="bDr-a1-69S"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <state key="normal" image="arrow.left" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="14" scale="large" weight="heavy"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hsB-yK-mqr" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
+                                <rect key="frame" x="101" y="105" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CBM-Ht-ira"/>
+                                    <constraint firstAttribute="width" constant="50" id="UAf-1o-NOi"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <state key="normal" image="bell.fill" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6cD-p1-1oj" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
+                                <rect key="frame" x="136" y="15" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gTU-pt-krl"/>
+                                    <constraint firstAttribute="width" constant="50" id="kiW-BZ-Hbs"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <state key="normal" image="arrow.clockwise" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="bold"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22x-4w-Kg0" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="0qD-Wh-8Kf"/>
+                                    <constraint firstAttribute="height" constant="50" id="NNN-ve-KFs"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <state key="normal" image="gear" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="semibold"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="settings_btn_clicked:" destination="FwS-oy-Ybv" eventType="touchUpInside" id="goH-rz-wwS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X9-iz-eTa" userLabel="Center Invis Btn">
+                                <rect key="frame" x="175.5" y="326.5" width="24" height="14"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6yA-pC-1rV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kXF-3o-kex" firstAttribute="leading" secondItem="22x-4w-Kg0" secondAttribute="trailing" id="2de-4T-Ey9"/>
                             <constraint firstAttribute="bottom" secondItem="JIo-fZ-mhK" secondAttribute="bottom" id="2ef-1L-4wE"/>
-                            <constraint firstItem="jqj-to-qUS" firstAttribute="leading" secondItem="kXF-3o-kex" secondAttribute="trailing" id="L7T-jn-Irx"/>
                             <constraint firstItem="6yA-pC-1rV" firstAttribute="trailing" secondItem="jqj-to-qUS" secondAttribute="trailing" constant="10" id="NeM-Bd-XlN"/>
+                            <constraint firstItem="9X9-iz-eTa" firstAttribute="top" secondItem="aLW-d6-dcw" secondAttribute="bottom" constant="30" id="OvU-Nc-UYb"/>
+                            <constraint firstItem="6cD-p1-1oj" firstAttribute="top" secondItem="6yA-pC-1rV" secondAttribute="top" constant="15" id="PJO-ff-cZH"/>
                             <constraint firstAttribute="trailing" secondItem="JIo-fZ-mhK" secondAttribute="trailing" id="V9R-S4-BPl"/>
-                            <constraint firstItem="kXF-3o-kex" firstAttribute="top" secondItem="6yA-pC-1rV" secondAttribute="top" constant="20" id="ZaC-tv-uhP"/>
                             <constraint firstItem="JIo-fZ-mhK" firstAttribute="leading" secondItem="Y6W-RV-oyb" secondAttribute="leading" id="ZnB-q4-zvX"/>
-                            <constraint firstItem="22x-4w-Kg0" firstAttribute="leading" secondItem="6yA-pC-1rV" secondAttribute="leading" constant="10" id="aU5-WW-kJN"/>
-                            <constraint firstItem="22x-4w-Kg0" firstAttribute="top" secondItem="6yA-pC-1rV" secondAttribute="top" constant="10" id="kVe-L1-ruH"/>
+                            <constraint firstItem="9X9-iz-eTa" firstAttribute="centerX" secondItem="Y6W-RV-oyb" secondAttribute="centerX" id="Zvj-UH-vUg"/>
+                            <constraint firstItem="aLW-d6-dcw" firstAttribute="centerX" secondItem="Y6W-RV-oyb" secondAttribute="centerX" id="naa-FR-IWc"/>
+                            <constraint firstItem="9DL-Db-2KN" firstAttribute="leading" secondItem="6yA-pC-1rV" secondAttribute="leading" constant="10" id="p4Q-gt-Od4"/>
+                            <constraint firstItem="22x-4w-Kg0" firstAttribute="top" secondItem="6yA-pC-1rV" secondAttribute="top" constant="10" id="rgk-8t-MAJ"/>
+                            <constraint firstItem="9X9-iz-eTa" firstAttribute="centerY" secondItem="Y6W-RV-oyb" secondAttribute="centerY" id="rtW-cM-xbE"/>
+                            <constraint firstItem="22x-4w-Kg0" firstAttribute="leading" secondItem="6yA-pC-1rV" secondAttribute="leading" constant="10" id="smz-b0-xgJ"/>
                             <constraint firstItem="JIo-fZ-mhK" firstAttribute="top" secondItem="Y6W-RV-oyb" secondAttribute="top" id="sq5-Fv-yDU"/>
                             <constraint firstItem="jqj-to-qUS" firstAttribute="top" secondItem="6yA-pC-1rV" secondAttribute="top" constant="10" id="tbQ-ki-cU7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="70J-lA-5sB"/>
                     <connections>
+                        <outlet property="logOut_btn" destination="9DL-Db-2KN" id="MuR-kV-Ggo"/>
                         <outlet property="mapView" destination="JIo-fZ-mhK" id="DRb-vZ-Ba3"/>
+                        <outlet property="menu_view" destination="Sm5-ez-Yxi" id="h8x-Hh-crS"/>
+                        <outlet property="notif_btn" destination="hsB-yK-mqr" id="tk8-Nj-egR"/>
+                        <outlet property="plus_btn" destination="jqj-to-qUS" id="AS3-bG-HwR"/>
+                        <outlet property="promptParentViewCenterX" destination="naa-FR-IWc" id="wbk-5o-kLh"/>
+                        <outlet property="prompt_parent_view" destination="aLW-d6-dcw" id="QiP-Oa-KT2"/>
+                        <outlet property="refresh_btn" destination="6cD-p1-1oj" id="QFR-bC-IzG"/>
+                        <outlet property="settings_btn" destination="22x-4w-Kg0" id="vtR-wd-aMt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YzJ-eY-GGb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="FVE-J2-BXi"/>
             </objects>
-            <point key="canvasLocation" x="4934" y="-666"/>
+            <point key="canvasLocation" x="4933.6000000000004" y="-666.11694152923542"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="J3E-Og-uQi">
@@ -363,20 +489,25 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" id="aUI-8d-9Op">
                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="53.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" id="PJw-G9-Tsj">
                                                 <rect key="frame" x="185" y="0.0" width="165" height="54"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="53.5" id="iiu-Lv-1wc"/>
+                                        </constraints>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your @ucsc.edu email" textAlignment="natural" minimumFontSize="17" id="d3V-UJ-m6z">
-                                        <rect key="frame" x="0.0" y="79" width="350" height="53"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your @ucsc.edu email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d3V-UJ-m6z">
+                                        <rect key="frame" x="0.0" y="78.5" width="350" height="53.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -385,11 +516,13 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lCu-7f-7Ev">
                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="53.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfj-4b-slr">
                                                 <rect key="frame" x="185" y="0.0" width="165" height="53.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -398,6 +531,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="aEO-le-eEe"/>
+                                    <constraint firstAttribute="height" constant="210.5" id="epN-ty-XJ8"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fak-ut-S6S" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
@@ -449,21 +583,14 @@
             </objects>
             <point key="canvasLocation" x="2671.1999999999998" y="-213.64317841079463"/>
         </scene>
-        <!--View Controller-->
+        <!--Take PFP View Controller-->
         <scene sceneID="QNb-Yb-kIC">
             <objects>
-                <viewController id="CDr-fA-TEt" sceneMemberID="viewController">
+                <viewController id="CDr-fA-TEt" userLabel="Take PFP View Controller" customClass="TakePFPViewController" customModule="UCSC_Meets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zYe-tO-mvr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C01-rm-d7X">
-                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Le4-yi-j0Q"/>
-                                    <constraint firstAttribute="height" constant="200" id="xYm-O3-5Uj"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take a Profile Pic" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM0-A6-NYw">
                                 <rect key="frame" x="46" y="20" width="283" height="143"/>
                                 <constraints>
@@ -498,18 +625,41 @@
                                     <segue destination="FwS-oy-Ybv" kind="presentation" customClass="OHCircleSegue" customModule="UCSC_Meets" customModuleProvider="target" modalPresentationStyle="fullScreen" id="E3a-jd-n6I"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bc-Q7-QAM" userLabel="pfp_btn" customClass="CustomButton" customModule="UCSC_Meets" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Tde-7D-90L"/>
+                                    <constraint firstAttribute="height" constant="200" id="bYf-Eq-4iM"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="person.crop.circle.fill.badge.plus" catalog="system" title="">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="114"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pfp_btn_pressed:" destination="CDr-fA-TEt" eventType="touchUpInside" id="Ahg-zl-L9f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wtf-MI-4Eh"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
-                            <constraint firstItem="C01-rm-d7X" firstAttribute="centerX" secondItem="zYe-tO-mvr" secondAttribute="centerX" id="1bt-rv-P6N"/>
                             <constraint firstItem="JM0-A6-NYw" firstAttribute="centerX" secondItem="zYe-tO-mvr" secondAttribute="centerX" id="NjP-e4-Dcx"/>
                             <constraint firstItem="wrC-Sk-Xk4" firstAttribute="centerX" secondItem="zYe-tO-mvr" secondAttribute="centerX" id="Oe7-aM-bjL"/>
                             <constraint firstItem="JM0-A6-NYw" firstAttribute="top" secondItem="wtf-MI-4Eh" secondAttribute="top" constant="20" id="QaT-Wd-S6k"/>
+                            <constraint firstItem="7bc-Q7-QAM" firstAttribute="centerY" secondItem="zYe-tO-mvr" secondAttribute="centerY" id="Xes-UV-3VE"/>
+                            <constraint firstItem="7bc-Q7-QAM" firstAttribute="centerX" secondItem="zYe-tO-mvr" secondAttribute="centerX" id="Zg9-4c-qwm"/>
                             <constraint firstItem="wtf-MI-4Eh" firstAttribute="bottom" secondItem="wrC-Sk-Xk4" secondAttribute="bottom" constant="90" id="xbk-UJ-NNT"/>
-                            <constraint firstItem="C01-rm-d7X" firstAttribute="centerY" secondItem="zYe-tO-mvr" secondAttribute="centerY" id="zrY-N7-8mJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pfp_btn" destination="7bc-Q7-QAM" id="W7O-nS-zBh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3t3-4v-i5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -517,11 +667,16 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Dbo-bz-JYx"/>
+        <segue reference="E3a-jd-n6I"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.crop.circle.fill.badge.plus" catalog="system" width="128" height="113"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="ucsc logo" width="2372" height="2302"/>
         <systemColor name="systemBackgroundColor">

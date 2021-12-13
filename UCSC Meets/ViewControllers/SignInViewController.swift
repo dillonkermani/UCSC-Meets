@@ -16,10 +16,12 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        emailTextField.layer.cornerRadius = 10
+        emailTextField.layer.cornerRadius = 20
         emailTextField.layer.masksToBounds = true
-        passwordTextField.layer.cornerRadius = 10
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "Enter your @ucsc.edu email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        passwordTextField.layer.cornerRadius = 20
         passwordTextField.layer.masksToBounds = true
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     }
     
 
