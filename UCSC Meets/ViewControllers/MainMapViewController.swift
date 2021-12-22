@@ -7,8 +7,18 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
+//import SAConfettiView
+
+var currentUser = Auth.auth().currentUser
 
 class MainMapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    
+    var db:Firestore!
+    // This dict will be written to the db upon completion of entry
+    var entryDataDict = Dictionary<String, Any>()
     
     enum CardState {
         case expanded
@@ -53,12 +63,43 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     @IBOutlet weak var promptParentViewCenterX: NSLayoutConstraint!
     
     
+    @IBOutlet weak var ghostPin: UIButton!
+    @IBOutlet weak var ghostPinCenterY: NSLayoutConstraint!
+    
+    
+    // Each prompt view and a list containing all.
+    @IBOutlet weak var promptParent_view: UIView!
+    @IBOutlet weak var titleSubview: UIView!
+    @IBOutlet weak var titleTextview: UITextField!
+    
+    
+    @IBOutlet weak var timeSubview: UIView!
+    @IBOutlet weak var startTimeTextview: UITextField!
+    @IBOutlet weak var endTimeTextView: UITextField!
+    
+    @IBOutlet weak var pinSubview: UIView!
+    
+    @IBOutlet weak var postSubview: UIView!
+    
+    var promptViews: [UIView]!
+    
+    var currentView_index = 0
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServices()
         
+        db = Firestore.firestore()
+        loadGlobalPins()
+
+        
+        promptViews = [titleSubview, timeSubview, pinSubview, postSubview]
         //Causes entryParentView to load from left of view
-        promptParentViewCenterX.constant -= view.bounds.width
+        //promptParentViewCenterX.constant -= view.bounds.width
+        ghostPinCenterY.constant -= view.bounds.height
         
         setupCard()
         
@@ -77,19 +118,45 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         menu_view.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         
         // For getting location while tapping on map we need to add UITapGestureRecognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        mapView.addGestureRecognizer(tapGesture)
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleTap))
+        mapView.addGestureRecognizer(longPressGesture)
         mapView.delegate = self
         
-       
-
+        ghostPin.isHidden = true
+        
         
 
     }
     
+    func loadGlobalPins () {
+        db.collection("global_pins").getDocuments(completion: { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    // Draw map pin.
+                    let geoPoint = document.get("coordinate") as! GeoPoint
+                    let coordinate = CLLocationCoordinate2D.init(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
+                    let title = document.get("title")
+                    //let subtitle = document.get("subtitle")
+                    let pin = MKPointAnnotation()
+                    pin.coordinate = coordinate
+                    pin.title = title as? String
+                    //pin.subtitle = subtitle as? String
+                    self.mapView.addAnnotation(pin)
+                    
+                    
+                }
+            }
+        })
+    }
+    
+    
+    
     // BEGIN Meet setup prompting.
     @objc func handleTap(gestureRecognizer: UILongPressGestureRecognizer) {
-        
+        loadGlobalPins()
+
         if !pinPrompt_expanded {
             presentPinPrompt()
             plus_btn_pressed()
@@ -102,23 +169,31 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             mapView.setRegion(region, animated: true)
             
             // Create and add ghost annotation to tappedLocation
-            annotation.coordinate = coordinate
-            mapView.addAnnotation(annotation)
+            ghostPin.isHidden = false
             
         }
-       
         
         
     }
     
+    
+    
     func presentPinPrompt() {
+        // TODO: Clear all prompt text fields.
+        
+        UIView.transition(from: promptViews[currentView_index], to: promptViews[0], duration: 0.5, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
+        currentView_index = 0
         // Present Prompt Screen (incomplete)
-        UIView.animate(withDuration: 0.9, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
-                    self.promptParentViewCenterX.constant += self.view.bounds.width
+        UIView.animate(withDuration: 0.9, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                    //self.promptParentViewCenterX.constant += self.view.bounds.width
+                    self.ghostPinCenterY.constant += self.view.bounds.height
                     self.view.layoutIfNeeded()
                 }, completion: nil)
+        
+        
+        
         pinPrompt_expanded = true
-            // Save meet_title
+        // Save meet_title
             // annotation.title =
             // annotation.subtitle =
         
@@ -134,12 +209,39 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
    
     func collapsePinPrompt() {
-        UIView.animate(withDuration: 0.9, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
-                    self.promptParentViewCenterX.constant -= self.view.bounds.width
+        UIView.animate(withDuration: 0.9, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                    //self.promptParentViewCenterX.constant -= self.view.bounds.width
+                    self.ghostPinCenterY.constant -= self.view.bounds.height
                     self.view.layoutIfNeeded()
                 }, completion: nil)
         pinPrompt_expanded = false
     }
+    
+    @IBAction func nextBtn_pressed(_ sender: Any) {
+        // Transition to next promptView.
+        if currentView_index < promptViews.count - 1 {
+            UIView.transition(from: promptViews[currentView_index], to: promptViews[currentView_index + 1], duration: 0.5, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
+            currentView_index += 1
+            
+            
+            // Not working for iPhone 6s. Lets see if it works for newer iPhones.
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+        }
+        return
+        
+        
+    }
+    
+    @IBAction func prevBtn_pressed(_ sender: Any) {
+        // Transition to previous promptView.
+        if currentView_index > 0 {
+            UIView.transition(from: promptViews[currentView_index], to: promptViews[currentView_index - 1], duration: 0.5, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
+            currentView_index -= 1
+        }
+        return
+    }
+    
     
     @IBAction func plus_btn_pressed(_ sender: Any) {
         // Set in in center of screen
@@ -148,13 +250,14 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         
         if !plus_expanded {
             // Create pin in middle of screen
-            annotation.coordinate = mapView.centerCoordinate
-            mapView.addAnnotation(annotation)
+            ghostPin.isHidden = false
             plus_btn_pressed()
             presentPinPrompt()
         } else {
             x_btn_pressed()
         }
+        
+
         
         
         // If center of screen is not MKUserLocation
@@ -182,7 +285,31 @@ class MainMapViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             
         })
         self.collapsePinPrompt()
-        mapView.removeAnnotation(annotation)
+        ghostPin.isHidden = true
+    }
+    
+    // Post pin to public_pins
+    @IBAction func post_btn_pressed(_ sender: Any) {
+        // Pin attributes:
+        
+        let pinTitle = titleTextview.text
+        let startTime = startTimeTextview.text
+        let endTime = endTimeTextView.text
+        let coordinate = mapView.centerCoordinate
+        
+        entryDataDict["startTime"] = startTime
+        entryDataDict["endTime"] = endTime
+        entryDataDict["coordinate"] = GeoPoint.init(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        
+        
+        
+        db.collection("global_pins").document(pinTitle!).setData(entryDataDict)
+        
+        x_btn_pressed()
+        
+        loadGlobalPins()
+        
+        
     }
     
     
